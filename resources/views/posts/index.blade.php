@@ -28,20 +28,22 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Hari</td>
-                    <td>Ktm</td>
-                    <td>6789</td>
-                    <td>this is description</td>
-                    <td class="d-flex gap-2">
-                        <a href="" class="btn btn-warning">View</a>
-                        <a href="" class="btn btn-dark">Edit</a>
-                        <form action="">
-                            <a href="" class="btn btn-danger">Delete</a>
-                        </form>
-                    </td>
-                </tr>
+                @foreach ($post as $item)
+                    <tr>
+                        <td>{$item->id}</td>
+                        <td>{$item->name}</td>
+                        <td>{$item->address}</td>
+                        <td>{$item->phoneno}</td>
+                        <td>{$item->description}</td>
+                        <td class="d-flex gap-2">
+                            <a href="{{ route('posts.edit', $item) }}" class="btn btn-warning">Edit</a>
+                            <form action="{{ route('posts.delete', $item) }}">
+                                <a href="" class="btn btn-danger">Delete</a>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+
             </tbody>
 
         </table>

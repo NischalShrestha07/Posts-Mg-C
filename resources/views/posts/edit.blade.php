@@ -20,21 +20,22 @@
                 @csrf
                 @method('PUT')
                 <label class="mt-2 h4" for="name">Name:</label>
-                <input class="form-control" type="text" id="name" name="name" placeholder="Enter Your Name">
+                <input class="form-control" type="text" id="name" name="name"
+                    value="{{ old('name,$post->name') }}">
 
                 <label class="mt-2 h4" for="address">Address:</label>
                 <input class="form-control" type="text" id="address" name="address"
-                    placeholder="Enter Your Address">
+                    value="{{ old('name,$post->address') }}">
 
                 <label class="mt-2 h4" for="phoneno">Phone Number:</label>
                 <input class="form-control" type="text" id="phoneno" name="phoneno"
-                    placeholder="Enter Your Phone Number">
+                    value="{{ old('name,$post->name') }}">
 
                 <label class="mt-2 h4" for="description">Description:</label>
                 <input class="form-control" type="text" id="description" name="description"
-                    placeholder="Enter Description">
+                    value="{{ old('name,$post->name') }}">
 
-                <button class="btn btn-success">Save</button>
+                <button class="btn btn-success">Update</button>
 
 
             </form>

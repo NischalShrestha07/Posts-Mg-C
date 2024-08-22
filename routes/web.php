@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TaskController;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -113,7 +114,34 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
-Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
-Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
-Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('posts.store');
+// Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+// Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+// Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+// Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edit');
+// Route::put('/posts/{id}', [PostController::class, 'update'])->name('posts.update');
+// Route::delete('/posts/{id}', [PostController::class, 'delete'])->name('posts.delete');
+
+
+// Route::get('/', function () {
+//     return "Its a default ";
+// });
+// Route::get('/card', function () {
+//     return view('cards.index');
+// });
+// Route::get('name/{name}/address/{address}', function ($name, $address) {
+//     return "HEllo $name and Do you live in $address";
+// });
+// // Route::get('food/{name?}/type/{type?}', function ($name = 'Naruto', $type = 'Fruit') {
+// //     return "HEllo " . $name . " and Do you live in " . $type;
+// // });
+// // Route::get('food/{name?}/wow/{type?}', function ($name = 'Hello', $type = 'fruit') {
+// //     return "HEllo " . $name . " Type is " . $type;
+// // });
+
+// Route::get('food/{name?}/wow/{type?}', function ($name = 'Hello', $type = 'fruit') {
+//     return "Hello " . $name . " Type is " . $type;
+// });
+
+
+Route::get('/', [TaskController::class, 'index']);
+Route::resource('/tasks', TaskController::class);

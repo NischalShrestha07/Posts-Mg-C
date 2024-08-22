@@ -11,9 +11,10 @@ class PostController extends Controller
     {
         // return "I am learning ";
         // return view('posts.index');
+        $post = Post::all();
 
 
-        return view('posts.index');
+        return view('posts.index', compact('post'));
     }
 
     public function create()
@@ -31,8 +32,28 @@ class PostController extends Controller
         Post::create($request->all());
         return redirect()->route('posts.index')->with('success', 'Post added successfully.');
     }
-    public function edit(Request $request)
+    public function edit(Request $request, $id)
     {
-        return view('post.edit');
+        $post = Post::findOrFail($id);
+
+        return view('post.edit', compact('post'));
+    }
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'address' => 'required|string',
+            'phoneno' => 'required',
+            'description' => 'required|string',
+        ]);
+        $post = Post::findOrFail($id);
+        $post->update($request->all());
+
+        return redirect()->route('posts.index')->with('success', 'Post Updated Successfully.');
+    }
+    public function delete($id)
+    {
+        Post::destroy($id);
+        return redirect()->route('posts.index')->with('success', 'Post deleted successfully.');
     }
 }

@@ -14,11 +14,11 @@
     <div class="container">
         <div class="navbar">
             <h1>Create Post</h1>
-            <a href="{{ route('posts.index') }}">Back</a>
+            <a href="{{ route('posts.index') }}" class="btn btn-primary">Back</a>
         </div>
-        <form action="" method="POST">
+        <form action="{{ route('posts.store') }}" method="POST">
             @csrf
-
+            @method('POST')
             <label class="mt-2 h4" for="name">Name:</label>
             <input class="form-control" type="text" id="name" name="name" placeholder="Enter Your Name">
 
@@ -33,7 +33,7 @@
             <input class="form-control" type="text" id="description" name="description"
                 placeholder="Enter Description">
 
-            <button class="btn btn-success">Save</button>
+            <button class="mt-2 btn btn-success">Save</button>
         </form>
     </div>
 </body>
