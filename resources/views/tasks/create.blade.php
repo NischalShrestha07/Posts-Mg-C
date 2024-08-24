@@ -54,6 +54,7 @@
                         {{ $message }}
                     </span>
                 @enderror
+                {{-- ajhs --}}
             </div>
             <div class="form-group">
                 <label class="mt-2 h4" for="salary">Salary:</label>
